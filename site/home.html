@@ -1,0 +1,152 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Simon Belt</title>
+    <link rel="icon" href="/src/img/triskele orange.png">
+    <style>
+      body {
+        min-height: 100vh;
+        padding: 0; margin: 0;
+      }
+      :root {
+        --col-main1: #06070E; /*black background*/
+        --col-main2: #FDEDEE; /*whiteish text*/
+        --col-main3: #e76405; /* orange; #D30C7B pink action*/
+
+        --font-size: 1em;
+        --large-font-size: 2em;
+        --title-font-size: 4em;
+        --hugetitle-font-size:6em;
+        --topbar-height: 70px;
+        --column-width: min(1600px, 100%);
+      }
+
+      @font-face {
+        font-family: TitleFont;
+        src: url(/src/font/Ubuntu/Ubuntu-Medium.ttf);
+      }
+      @font-face {
+        font-family: BodyFont;
+        src: url(/src/font/Inter/Inter-Light.ttf);
+      }
+      h1, h2, h3, p {
+        color: var(--col-main2);
+      }
+      h1, h2, h3 {
+        font-family: TitleFont, Arial, sans-serif;
+        font-size: var(--title-font-size);
+      }
+      p {
+        font-family: BodyFont, Arial, sans-serif;
+        font-size: var(--font-size);
+      }
+
+      .topbar {
+        height: var(--topbar-height); width: 100%;
+        position: sticky;
+        top: 0;
+        background-color: var(--col-main1);
+        display: flex; flex-direction: row;
+      }
+
+      .logo-cont {
+        height:40px;
+        width:40px;
+        padding: 15px;
+      }
+      .logo-cont img {
+        width: 100%;
+        object-fit: contain;
+      }
+      .menulist {
+        width: calc(100% - 70px);
+        display: flex;
+        padding: 10px;
+        justify-content: flex-end;
+      }
+
+      .sction.one {
+        height: calc(100vh - var(--topbar-height));
+        width: 100%;
+        position: relative;
+      }
+      .one-img-container {
+        width: 100%; height:100%;
+      }
+      .one-img-container img {
+        width: 100%; height:100%;
+        object-fit: cover;
+        object-position: 50% 0%;
+      }
+      .one-text-bigbox {;
+        position:absolute; top: 0; left:0;
+        height:100%; width: 100%;
+        margin: auto;
+        padding-left: 70px;
+        padding-bottom: min(30%, 200px);
+        z-index: 2;
+        display: flex;
+        flex-direction: column-reverse;
+        box-sizing: border-box;
+      }
+      .one-text-container {
+        width: var(--column-width);
+        margin: 0 auto;
+      }
+      .one-text-container .line1 {
+        font-weight: bold;
+        font-size: var(--large-font-size);
+      }
+      .one-text-container .line2 {
+        font-weight: bold;
+        font-size: var(--hugetitle-font-size);
+        margin: 40px 0 0;
+      }
+      .one-shader {
+        position: absolute; top: 0; left: 0;
+        z-index: 1;
+        height: 100%;
+        width: 60%;
+        background-image: linear-gradient(to right, rgba(0,0,0,0.6), rgba(0, 0, 0, 0));
+      }
+    </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="topbar-element logo-cont">
+      <img src="/src/img/triskele orange.png" alt="logo a triskele" />
+    </div>
+    <div class="topbar-element menulist">
+      <div>Home</div>
+      <div>Home</div>
+
+    </div>
+  </div>
+  <section class="sction one">
+    <div class="one-img-container">
+      <img src="/src/img/mnt_peak.jpg" alt="mountain landscape"/>
+    </div>
+    <div class="one-text-bigbox">
+      <div class="one-text-container">
+        <p class="line1">Hello. My name is</p>
+        <h1 class="line2">Simon Belt</h1>
+      </div>
+    </div>
+    <div class="one-shader"></div>
+  </section>
+
+  <section class="section">
+
+  </section>
+
+  <section class="section specbg">
+  </section>
+
+  <section class="section">
+
+  </section>
+
+</body>
+</html>
+
