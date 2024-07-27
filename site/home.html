@@ -6,6 +6,7 @@
     <link rel="icon" href="/asset/img/triskele orange.png">
     <link rel="stylesheet" href="/asset/fontawesome/css/fontawesome.css">
     <link rel="stylesheet" href="/asset/fontawesome/css/solid.css">
+    <link rel="stylesheet" href="/asset/style/simonbelt.css?v=1">
 
     <meta property="og:title" content="Simon Belt" />
     <meta property="og:type" content="website" />
@@ -17,310 +18,28 @@
     <meta property="og:site_name" content="Simon Belt" />
 
     <style>
-      * {
-        box-sizing: border-box;
-      }
-      body {
-        min-height: 100vh;
-        padding: 0; margin: 0;
-        background-color: var(--col-main1);
-
-        font-family: BodyFont, Arial, sans-serif;
-        color: var(--col-main2);
-      }
-      :root {
-        --col-main1: #06070E; /*black background*/
-        --col-main1-2: #18181d; /*slightly different black*/
-        --col-main2: #FDEDEE; /*whiteish text*/
-        --col-main3: #e76405; /* orange; #D30C7B pink action*/
-        --col-main3-2: #e87a2b;
-
-        --font-size: 1em;
-        --large-font-size: 2em;
-        --title-font-size: 3em;
-        --hugetitle-font-size:6em;
-        --topbar-height: 70px;
-        --column-width: min(1400px, 100%);
-        --column-smallwidth: min(1000px, 100%);
-      }
-
-      @font-face {
-        font-family: TitleFont;
-        src: url(/asset/font/Ubuntu/Ubuntu-Medium.ttf);
-      }
-      @font-face {
-        font-family: BodyFont;
-        src: url(/asset/font/Poppins/Poppins-Light.ttf);
-      }
-      @font-face {
-        font-family: BodyFontBold;
-        src: url(/asset/font/Poppins/Poppins-SemiBold.ttf);
-        font-weight:bold;
-      }
-      h1, h2, h3, p {
-        color: var(--col-main2);
-      }
-      h1, h2, h3 {
-        font-family: TitleFont, Arial, sans-serif;
-        font-size: var(--title-font-size);
-        margin: 20px 0;
-      }
-      p {
-        font-size: var(--font-size);
-        line-height: 1.4;
-        letter-spacing: 0.2px;
-        padding: 1px 0;
-      }
-      b {
-        font-family: BodyFontBold, Arial, sans-serif;
-      }
-      a, .pseudolink {
-        color: var(--col-main3);
-        transition: .2s ease;
-        text-decoration: none;
-        font-family: BodyFontBold, Arial, sans-serif;
-      }
-      a:hover, .pseudolink:hover {
-        color: var(--col-main3-2);
-      }
-
-      .topbar {
-        height: var(--topbar-height); width: 100%;
-        position: sticky;
-        top: 0;
-        background-color: var(--col-main1);
-        z-index: 5;
-        box-shadow: var(--col-main1-2) 0px 0px 12px 8px;
-      }
-      .topbar-elements-cont {
-        width: var(--column-width);
-        margin: auto;
-        display: flex; flex-direction: row;
-      }
-
-      .logo-cont {
-        height:40px;
-        width:40px;
-        padding: 15px;
-        box-sizing: content-box;
-      }
-      .logo-cont img {
-        width: 100%;
-        object-fit: contain;
-      }
-      .menulist {
-        width: calc(100% - 70px);
-        display: flex;
-        padding: 0 15px;
-        justify-content: flex-end;
-        align-items: center;
-      }
-      .menulist p {
-        padding: 0 13px;
-        font-family: BodyFont;
-      }
-
-      .section.one {
-        height: calc(100vh - var(--topbar-height));
-        width: 100%;
+      .section.filled.mnt_path {
+        background-image: url("/asset/img/mnt_path.jpg");
+        background-size: cover;
         position: relative;
       }
-      .one-img-container {
-        width: 100%; height:100%;
-      }
-      .one-img-container img {
-        width: 100%; height:100%;
-        object-fit: cover;
-        object-position: 50% 0%;
-      }
-      .one-text-bigbox {
-        position:absolute; top: 0; left:0;
-        height:100%; width: 100%;
-        margin: auto;
-        padding-left: 70px;
-        padding-bottom: min(30%, 200px);
-        z-index: 2;
-        display: flex;
-        flex-direction: column-reverse;
-      }
-      .one-text-container {
-        width: var(--column-width);
-        margin: 0 auto;
-      }
-      .one-text-container .line1 {
-        font-weight: bold;
-        font-size: var(--large-font-size);
-      }
-      .one-text-container .line2 {
-        font-weight: bold;
-        font-size: var(--hugetitle-font-size);
-        margin: 40px 0 0;
-      }
-      .one-shader {
-        position: absolute; top: 0; left: 0;
-        z-index: 1;
-        height: 100%;
-        width: 60%;
-        background-image: linear-gradient(to right, rgba(0,0,0,0.6), rgba(0, 0, 0, 0));
-      }
 
-      .section.stndrd {
-        width: var(--column-width);
-        margin: calc(5vw + 100px) auto;
-        border-radius: 10px;
-        padding: 20px;
-      }
-      .section.smallwidth {
-        width: var(--column-smallwidth);
-      }
-      .specbg {
-        background-color: var(--col-main1-2);
-      }
-
-      .aboutme-cont {
-        display: flex;
-      }
-      .aboutme-cont div {
-        padding: 20px;
-        width: 50%;
-      }
-      .aboutme-portrait {
-        width: min(100%, 350px);
-        display: block;
-        margin: auto;
-        border-radius: 5px;
-        overflow:hidden;
-      }
-      .aboutme-cont h2 {
-        margin-top: 0;
-      }
-
-      .portfolio-table {
-        width: 100%;
-      }
-      .portfolio-table td {
-        vertical-align: top;
-        padding: 7px 0;
-      }
-
-      .project-gallery {
-        display: flex;
-        align-items: row;
-        overflow: hidden;
-        touch-action: pan-x;
-        padding: 50px 0;
-        overflow-x: scroll;
-      }
-      .project-tab {
-        width: max(400px, 40%);
-        min-height: 550px;
-        margin: 10px 25px;
-        flex-shrink: 0;
-        display: flex;
-        flex-direction: column;
-        border-radius: 10px; overflow:hidden;
-        background-color: var(--col-main1);
-      }
-      .project-tab-topbar {
-        width: 100%;
-        background: linear-gradient(8deg, var(--col-main3) 3%, var(--col-main1) 55%);
-        /*border-bottom: 1px solid var(--col-main3);*/
-        min-height: 150px;
-        display: flex;
-      }
-      .project-tab-topbar-cont {
-        height: 100%;
-        display: flex;align-items: center;
-        padding: 10px 0 10px 15px;
-      }
-      .project-tab-topbar-logo  {
-        width: 70px; height: 70px;
-        object-fit: contain;
-      }
-      .project-tab-topbar-text p {
-        padding: 0; margin: 10px 0;
-      }
-      .project-tab-text ul {
-        padding: 15px 15px 15px 40px;
-      }
-      .project-tab-text li {
-        padding: 6px 0;
-      }
-
-      .gallery-cont {
-        padding: 20px;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-evenly;
-      }
-      .gallery-el {
-        width: max(300px, 25%);
-        margin: 20px;
-        
-        height: 500px;
-      }
-      .gallery-el img {
-        height: 100%; width: 100%;
-        object-fit: cover;
-        border-radius: 10px; overflow:hidden;
-        transition: .1s ease;
-      }
-      .gallery-el img:hover {
-        height: 102%; width: 102%;
-        transform: translate(-1%, -1%);
-      }
-      .gallery-legend {
-        display: none;
-      }
-      .gallery-big-cont {
-        position: fixed;
-        top: 0; left: 0; width: 100vw; height: 100vh;
-        background-color: var(--col-main1);
-        z-index: 10;
-        pointer-events: all;
-        display: none;
-      }
-      .gallery-big-column {
+      .section.filled .shadeoverlay {
+        position: absolute;
+        top: 0; left: 0; width: 100%; height: 100%;
         opacity: 1;
-        width: var(--column-width);
-        height: calc(100% - 100px);
-        margin: 50px auto;
-        padding: 50px;
-        display: flex; flex-direction: column;
+        z-index: 0;
+        background-image: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0, 0, 0, 0.3));
       }
-      .gallery-big-imgcont {
-        padding: 50px;
-        height: 80%; width: 100%;
-        min-width: 0;
-        flex-shrink: 5;
-        text-align: center;
+
+      table {
+        width: 100%;
       }
-      .gallery-big-imgcont img {
-        border-radius: 10px;
-        max-width: 100%; max-height: 100%;
-        object-fit: contain;
+      table td {
+        vertical-align: top;
+        padding: 12px 7px;
       }
-      .gallery-big-legend {
-        text-align: center;
-      }
-      .gallery-big-control  {
-        position: absolute; 
-        font-size: var(--large-font-size);
-        z-index: 11;
-        transition: .2s;
-      }
-      .gallery-big-control:hover {
-        color: var(--col-main3);
-      }
-      .gallery-big-control.closer {
-        top: 40px; right: 40px;
-      }
-      .gallery-big-control.leftie {
-        top: 50vh; left: 40px;
-      }
-      .gallery-big-control.rightie {
-        top: 50vh; right: 40px;
-      }
+
 
       .contact-gallery {
         padding: 20px;
@@ -332,22 +51,18 @@
       .contact-cont {
         border-radius: 10px; overflow:hidden;
         background-color: var(--col-main1);
-        padding: 15px;
+        padding: 10px;
+        margin: 10px;
         width: max(300px, 20%);
         min-height: 200px;
       }
-      .contact-icon {
-        padding: 10px 0;
-        width: 100%;
+      .contact-cont.big {
+        min-height: 210px;
+      }
+      .contact-header {
         text-align: center;
+        font-weight: bold;
       }
-      .contact-icon img {
-        width: 50px; height: 50px; object-fit: contain;
-      }
-      .contact-text {
-        text-align: center;
-      }
-
 
     </style>
 </head>
@@ -360,9 +75,9 @@
       <div class="topbar-element menulist">
         <p class="pseudolink" onclick="scrolleTo('tHome')">Home</p>
         <p class="pseudolink" onclick="scrolleTo('tAbout')">About</p>
+        <p class="pseudolink" onclick="scrolleTo('tActivities')">Activities</p>
         <p class="pseudolink" onclick="scrolleTo('tPortfolio')">Portfolio</p>
         <p class="pseudolink" onclick="scrolleTo('tGallery')">Gallery</p>
-        <p class="pseudolink" onclick="scrolleTo('tContact')">Contact</p>
       </div>
     </div>
   </div>
@@ -383,23 +98,86 @@
   <section id="tAbout" class="section smallwidth stndrd">
     <div class="aboutme-cont">
       <div>
-        <img class="aboutme-portrait" src="/asset/img/portrait1.jpg" alt="photo of Simon" />
+        <img class="aboutme-portrait" src="/asset/img/portrait2.jpg" alt="photo of Simon" />
       </div>
       <div>
         <h2>About Me</h2>
         <p>
-           I’m an avid fantasy reader, regularly go climbing, and have a passion for <b>building beautiful and fine-tuned websites to create experiences</b>. Starting with self-taught HTML in 2019, I have since had the opportunity to design sites for several awesome projects, including <a href="https://climatecontract.ch/" target="_blank">Climate Contract</a>, a student sustainability undertaking, and <a href="https://manyisles.ch/" target="_blank">Many Isles</a>, a fantasy hub.</p><p>
-          Simultaneously, I’m <b>highly engaged in youth sports</b>: I regularly lead a scouts group and have co-led several WWF camps.</p><p>
-          Whatever the project, I always delve into the undertaking with lots of energy, taking a structural top-down approach to break down the work and efficiently deliver good results. I like working in a team for mutual feedback and to complement my abilities.</p><p>
-          I am currently available for short-term or part-time job opportunities in the IT and pedagogy fields, anywhere in the Zurich region.
+        I’m a dedicated youth activities leader, regularly go climbing, and have a passion for the <b>fantasy genre and building worlds</b>. Over the years, this hobby has brought me to write and self-publish <a href="https://manyisles.ch/dl/item/103/Rise_of_Humankind" target="_blank">extensive imagined histories</a>, run a number of <b>roleplaying games</b>, and even start a <a href="https://www.manyisles.org/" target=”_blank”>student fantasy association</a>.</p><p>
+
+        Simultaneously, I’m <b>highly engaged in youth sports</b>: I’m active in the cadre of my local scouts group, organizing both regular Saturday activities as well as camps, and co-lead WWF camps in summer and autumn.</p><p>
+
+        With the intent of becoming a teacher in the future, I am happy to gather pedagogic experience. I notably offer tutoring from the primary to secondary/Gymi levels, primarily in maths.</p><p>
+
+        I study Computer Science, focusing mostly on web development in my free time. Starting with self-taught HTML in 2019, I have since had the opportunity to design sites for several awesome projects, including <a href="https://climatecontract.ch/" target="_blank">Climate Contract</a>, a student sustainability undertaking, and <a href="https://manyisles.ch/" target="_blank">Many Isles</a>, a fantasy hub.</p><p>
+
+        Whatever the project, I always delve into the undertaking with lots of energy and a systematic approach. <a href="">Find out more about what I've done → </a>
         </p>
       </div>
     </div>
   </section>
 
+  <section class="section stndrd filled mnt_path">
+    <div style="position: relative; z-index: 1">
+      <h2 id="tActivities">My Activities</h2>
+      <p>
+        I'm active in a wide breadth of fields. I will be glad to get in touch if I can be of use in any way!<br>
+        Note that I am mostly active in German.
+      </p>
+      <table class="activities-table">
+        <tbody>
+          <tr>
+            <td style="width:15%"><b>Private Tutoring</b></td>
+            <td>I have experience giving tutoring to students at the Primary, Secondary, and Gymi levels, primarily in Maths.</td>
+            <td>
+              <a href="mailto:mail@simonbelt.net" target="_blank"><i class="fa-solid fa-envelope"></i> Let's get in touch!</a>
+            </td>
+          </tr>
+          <tr>
+            <td><b>Fantasy Projects</b></td>
+            <td>I have quite some experience in fantasy projects, and always have energy for something new. Whether you're looking for creative feedback or participation, I'm happy to get in touch and find out what I can do for your project!</td>
+            <td>
+              <a href="mailto:simon.belt@manyisles.org" target="_blank">simon.belt@manyisles.org</a><br>
+              <span class="pseudolink">Discord: ginlic</span>
+            </td>
+          </tr>
+          <tr>
+            <td><b>Youth Sports</b></td>
+            <td>Whether for regular activities on Saturday afternoon or full-week camps, I'm always to have in youth sports! I am available for any questions and will happily consider participating in any kind of summer camp.</td>
+            <td>
+              <a href="mailto:simon.belt@kadetten.ch" target="_blank">simon.belt@kadetten.ch</a><br>
+              <a href="mailto:mail@simonbelt.net" target="_blank">mail@simonbelt.net</a>
+            </td>
+          </tr>
+          <tr>
+            <td><b>Climate Education</b></td>
+            <td>As a long-time <b>Climate Fresk facilitator</b>, I can organise regular Climate Fresk workshops for adults as well as more creative half-day activities for younger audiences.</td>
+            <td>
+              <a href="mailto:mail@simonbelt.net" target="_blank">mail@simonbelt.net</a>
+            </td>
+          </tr>
+          <tr>
+            <td><b>Babysitting</b></td>
+            <td>I generally do not start any new babysitting arrangements.</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td><b>Software Design</b></td>
+            <td>I will be happy to discuss small software projects, in website development or other fields, which help me gain practical experience.</td>
+            <td>
+              <a href="mailto:mail@simonbelt.net" target="_blank"><i class="fa-solid fa-envelope"></i> Let's get in touch!</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+    <div class="shadeoverlay"></div>
+
+  </section>
   <section class="section stndrd specbg">
     <h2 id="tPortfolio">Portfolio</h2>
-    <table class="portfolio-table">
+    <table class="">
       <tbody>
         <tr>
           <td><b>Education</b></td>
@@ -411,7 +189,7 @@
         <tr>
           <td><b>Languages</b></td>
           <td>
-            English, French, German
+            German, English, French
           </td>
         </tr>
         <tr>
@@ -436,16 +214,48 @@
       <div class="project-tab">
         <div class="project-tab-topbar">
           <div class="project-tab-topbar-cont">
-            <img class="project-tab-topbar-logo" src="/asset/img/logo/ClimateContract.png" alt="logo" />
+            <img class="project-tab-topbar-logo" src="/asset/img/logo/MIA.png" alt="logo" />
           </div>
           <div class="project-tab-topbar-cont">
             <div class="project-tab-topbar-text">
               <p>
-                <b>Project Manager / Lead Developer</b><br>
-                Climate Contract
+                <b>Founder / President</b><br>
+                Many Isles Student Fantasy Association
               </p>
               <p>
-                May 2022 - Present
+                August 2023 - Present
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="project-tab-text">
+          <ul>
+            <li>Participated in the foundation and establishment of a new association in the Zurich students community</li>
+            <li>
+              Ran major events in cooperation with other organizations, including RPG Day with the city's other fantasy groups
+            </li>
+            <li>
+              Tested and adapted event concepts, managed event organisers and other staff
+            </li>
+            <li>
+              Built up, then revised the association's structure in several phases
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="project-tab">
+        <div class="project-tab-topbar">
+          <div class="project-tab-topbar-cont">
+            <img class="project-tab-topbar-logo" src="/asset/img/logo/FokusNachhilfe.png" alt="logo" />
+          </div>
+          <div class="project-tab-topbar-cont">
+            <div class="project-tab-topbar-text">
+              <p>
+                <b>Private Tutor</b><br>
+                Fokus Nachhilfe
+              </p>
+              <p>
+                November 2023 - Present
               </p>
             </div>
           </div>
@@ -453,13 +263,13 @@
         <div class="project-tab-text">
           <ul>
             <li>
-              Helped promote climate action by encouraging young people to close "contracts" with their parents sponsoring sustainable behavior in a variety of domains
+              Gave successful mathematics tutoring to a student in the 6th Primary year, with a marked improvement in exam grades
             </li>
             <li>
-              Developed and maintained the Climate Contract <a href="https://climatecontract.ch" target="_blank">website</a>, with tools including MySQL databases and a customized HTML/CSS frontend
+              Developed the ability to simply and clearly communicate concepts, while allowing students to gain their own experience through work
             </li>
             <li>
-              Managed the project by participating in its founding, drawing up a roadmap and marketing plan, and building up the required software
+              Worked with current school materials, building up and deepening knowledge with a base in theory and an applied focus
             </li>
           </ul>
         </div>
@@ -498,16 +308,16 @@
       <div class="project-tab">
         <div class="project-tab-topbar">
           <div class="project-tab-topbar-cont">
-            <img class="project-tab-topbar-logo" src="/asset/img/logo/ManyIsles.png" alt="logo" />
+            <img class="project-tab-topbar-logo" src="/asset/img/logo/ClimateContract.png" alt="logo" />
           </div>
           <div class="project-tab-topbar-cont">
             <div class="project-tab-topbar-text">
               <p>
-                <b>Founder / Lead Full Stack Developer</b><br>
-                Many Isles
+                <b>Project Manager / Lead Developer</b><br>
+                Climate Contract
               </p>
               <p>
-                March 2020 - Present
+                May 2022 - May 2023
               </p>
             </div>
           </div>
@@ -515,16 +325,13 @@
         <div class="project-tab-text">
           <ul>
             <li>
-              Participated in the foundation and management of a community offering a variety of services in the fantasy genre
+              Helped promote climate action by encouraging young people to close "contracts" with their parents sponsoring sustainable behavior in a variety of domains
             </li>
             <li>
-              Developed and maintained the Many Isles <a href="https://manyisles.ch" target="_blank">website</a>, including tools such as a document publishing service, a digital store, and a wiki system
+              Developed and maintained the Climate Contract <a href="https://climatecontract.ch" target="_blank">website</a>, with tools including MySQL databases and a customized HTML/CSS frontend
             </li>
             <li>
-              Managed systems including an extensive PHP-driven backend, a Stripe implementation for invoicing and subscriptions, and MySQL data handling
-            </li>
-            <li>
-              Participated in the lore and resources offered by the Many Isles, notably by writing roleplaying game modules, actively participating in the fandom wiki, and writing a printed history textbook
+              Managed the project by participating in its founding, drawing up a roadmap and marketing plan, and building up the required software
             </li>
           </ul>
         </div>
@@ -557,6 +364,40 @@
           </ul>
         </div>
       </div>
+      <div class="project-tab">
+        <div class="project-tab-topbar">
+          <div class="project-tab-topbar-cont">
+            <img class="project-tab-topbar-logo" src="/asset/img/logo/ManyIsles.png" alt="logo" />
+          </div>
+          <div class="project-tab-topbar-cont">
+            <div class="project-tab-topbar-text">
+              <p>
+                <b>Founder / Lead Full Stack Developer</b><br>
+                Many Isles Project
+              </p>
+              <p>
+                March 2020 - February 2024
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="project-tab-text">
+          <ul>
+            <li>
+              Participated in the foundation and management of a community offering a variety of services in the fantasy genre
+            </li>
+            <li>
+              Developed and maintained the Many Isles <a href="https://manyisles.ch" target="_blank">website</a>, including tools such as a document publishing service, a digital store, and a wiki system
+            </li>
+            <li>
+              Managed systems including an extensive PHP-driven backend, a Stripe implementation for invoicing and subscriptions, and MySQL data handling
+            </li>
+            <li>
+              Participated in the lore and resources offered by the Many Isles, notably by writing roleplaying game modules, actively participating in the fandom wiki, and writing a printed history textbook
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -564,22 +405,22 @@
     <h2 id="tGallery">Gallery</h2>
     <div class="gallery-cont">
       <div class="gallery-el">
-        <img src="/asset/img/gallery/fresk.jpg" text="Facilitating a Climate Fresk at Hochschule St. Gallen in February 2023.">
+        <img src="/asset/img/alt/mia_whiteunderwear.png" text="Facilitating a Climate Fresk at Hochschule St. Gallen in February 2023.">
       </div>
       <div class="gallery-el">
-        <img src="/asset/img/gallery/hike4.jpg" text="Setting up camp in the French Jura during a two-day solo backpacking trip in June 2022.">
+        <img src="/asset/img/alt/rbagnol_goldnudestand.jpeg" text="Setting up camp in the French Jura during a two-day solo backpacking trip in June 2022.">
       </div>
       <div class="gallery-el">
-        <img src="/asset/img/gallery/matura1.jpg" text="Maturfeier 2022.">
+        <img src="/asset/img/alt/rcook_tightformingflower.png" text="Maturfeier 2022.">
       </div>
       <div class="gallery-el">
-        <img src="/asset/img/gallery/studies.jpg" text="Attending a Discrete Mathematics lecture at ETH, December 2022.">
+        <img src="/asset/img/alt/sasha_classyopentop.jpeg" text="Attending a Discrete Mathematics lecture at ETH, December 2022.">
       </div>
       <div class="gallery-el">
-        <img src="/asset/img/gallery/dwarf.jpg" text="Disguised as a dwarf salesman for a youth activity, May 2022.">
+        <img src="/asset/img/alt/sfox_openswimsuitperk.png" text="Disguised as a dwarf salesman for a youth activity, May 2022.">
       </div>
       <div class="gallery-el">
-        <img src="/asset/img/gallery/climb.jpg" text="Belaying a participant during a WWF climbing camp, October 2022.">
+        <img src="/asset/img/alt/swoodley_blackdressslit.png" text="Belaying a participant during a WWF climbing camp, October 2022.">
       </div>
     </div>
     <div class="gallery-big-cont" id="gallery-big-cont">
@@ -600,13 +441,36 @@
     <h2 id="tContact">Contact</h2>
     <p>Thanks for visiting! I look forward to hearing from you.</p>
     <div class="contact-gallery">
-      <div class="contact-cont">
+      <div class="contact-cont big">
+        <p class="contact-header">Direct Contact</p>
         <div class="contact-icon">
           <img src="/asset/img/icon/mail.png" alt="mail icon" />
         </div>
         <div class="contact-text">
           <p>
             <a href="mailto:simon.belt@simonbelt.net" target="_blank">mail@simonbelt.net</a>
+          </p>
+        </div>
+      </div>
+      <div class="contact-cont">
+        <p class="contact-header">Many Isles / Student Work</p>
+        <div class="contact-icon">
+          <img src="/asset/img/icon/mail.png" alt="mail icon" />
+        </div>
+        <div class="contact-text">
+          <p>
+            <a href="mailto:simon.belt@manyisles.org" target="_blank">simon.belt@manyisles.org</a>
+          </p>
+        </div>
+      </div>
+      <div class="contact-cont">
+        <p class="contact-header">Kadetten Horgen</p>
+        <div class="contact-icon">
+          <img src="/asset/img/icon/mail.png" alt="mail icon" />
+        </div>
+        <div class="contact-text">
+          <p>
+            <a href="mailto:simon.belt@kadetten.ch" target="_blank">simon.belt@kadetten.ch</a>
           </p>
         </div>
       </div>
